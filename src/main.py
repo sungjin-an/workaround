@@ -4,6 +4,9 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from time import sleep
 import os
 import logging
+import pandas as pd
+import openpyxl
+from datetime import datetime
 
 
 
@@ -30,49 +33,49 @@ logger.setLevel(logging.INFO)
 log_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 
 # define log file
-log_file_handler = logging.FileHandler('test.log')
+log_file_handler = logging.FileHandler('screenshot.log')
 log_file_handler.setFormatter(log_formatter)
 logger.addHandler(log_file_handler)
 
 
 
-
 varNum = 1
-varDirPath = ".\\Image\\"
+varDirPath = ".\\image\\"
 varFilenamePrefix = "screenshot"
+varInputDataFile = "sample_data.csv"
 
 createFolder(varDirPath)
 
 
-varUrls = [
-    "https://www.google.com"
-    , "https://www.naver.com"
-    , "github.com"
-]
+
+df = pd.read_csv(varInputDataFile)
+
+for index, row in df.iterrows():
 
 
-for x in varUrls:
-
-    logging.debug("Start---------------" + "%04d" % (varNum) )
+    logging.debug("Start---------------" + "%04d" % (index) )
     options = FirefoxOptions()
     options.add_argument("--headless")
-    options.add_argument("--width=800")
-    options.add_argument("--height=600")
+    options.add_argument("--width=1920")
+    options.add_argument("--height=1080")
 
     driver = webdriver.Firefox(options=options)
     driver.implicitly_wait(5)
 
     # prefix with https
-    driver.get( check_https_URI(x) )
+    driver.get( check_https_URI( row["URL"] ) )
 
     sleep(2)
 
-    driver.save_screenshot( varDirPath + varFilenamePrefix + "_" + "%04d" % (varNum) + ".png")
+    varNow = datetime.now()
+    varSaveFileName = varFilenamePrefix + "_" + "%04d" % (index) + "_" + varNow.strftime("%Y%m%d_%H%M%S_%f") +  ".png"
 
-    logging.info(">>Make Screenshot : " + x + " ====> " + varFilenamePrefix + "_" + "%04d" % (varNum) + ".png")
-    # print(">>Make Screenshot : " + x + " ====> " + varFilenamePrefix + "_" + "%04d" % (varNum) + ".png")
+    driver.save_screenshot( varDirPath + varSaveFileName )
 
-    varNum += 1
+    logging.info(">>Make Screenshot : " + row["URL"] + " ====> " + varSaveFileName)
+    # print to console --------------------------------------
+    print(">>Make Screenshot : " + row["URL"] + " ====> " + varSaveFileName)
 
     driver.close()
-    logging.debug("End-----------------" + "%04d" % (varNum) )
+    logging.debug("End-----------------" + "%04d" % (index) )
+
