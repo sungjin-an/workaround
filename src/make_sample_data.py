@@ -9,7 +9,7 @@ varInputDataFile = "sample_data.csv"
 df = pd.DataFrame([   ["홍길동", "https://www.google.com"]
                     , ["김이박", "https://www.naver.com"]
                     , ["김수한모거북이와두루미", "github.com"] ]
-                    , columns=['Name', 'URL'])
+                    , columns=['NAME', 'URL'])
 print(df)
 df.to_csv(varInputDataFile, mode='w', index=False)
 

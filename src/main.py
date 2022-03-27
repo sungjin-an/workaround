@@ -67,8 +67,7 @@ for index, row in df.iterrows():
 
     sleep(2)
 
-    varNow = datetime.now()
-    varSaveFileName = varFilenamePrefix + "_" + "%04d" % (index) + "_" + varNow.strftime("%Y%m%d_%H%M%S_%f") +  ".png"
+    varSaveFileName = f"{varFilenamePrefix}_{index+1:04}_{row['NAME']}_{datetime.now():%Y%m%d_%H%M%S_%f}.png"
 
     driver.save_screenshot( varDirPath + varSaveFileName )
 
