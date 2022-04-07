@@ -1,10 +1,9 @@
 # workaround
 
-**- [Python과 Selemium을 이용한 화면 Capture](#Python과-Selemium을-이용한-화면-Capture)**
-
-**- [Pandas를 이용한 엑셀 파일 읽기 및 저장](#Pandas를-이용한-엑셀-파일-읽기-및-저장)**
-
-# 
+- [Python과 Selemium을 이용한 화면 Capture](#Python과-Selemium을-이용한-화면-Capture)   
+- [Pandas를 이용한 엑셀 파일 읽기 및 저장](#Pandas를-이용한-엑셀-파일-읽기-및-저장)   
+- [Terraform](#terraform)
+--- 
 
 # Python과 Selemium을 이용한 화면 Capture
 
@@ -61,6 +60,7 @@
 
 - venv 환경을 없애는 것은 해당 폴더를 삭제하면 된다
 
+---
 
 # Pandas를 이용한 엑셀 파일 읽기 및 저장
 
@@ -72,3 +72,12 @@
   (seleniumTest) C:\\seleniumTest> pip install xlrd        # Excel 읽을때 필요
   (seleniumTest) C:\\seleniumTest> pip install openpyxl    # Excel 저장시 필요
   ```
+
+---
+# Terraform 
+## 관련 사이트
+- [Terraform AWS modules - Github](https://github.com/terraform-aws-modules)
+- [Kurly Tech Blog - DevOps팀의 Terraform 모험 (2021.08)](https://helloworld.kurly.com/blog/terraform-adventure/)   
+- [Terraform best practices](https://www.terraform-best-practices.com/)   
+
+
