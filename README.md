@@ -2,7 +2,10 @@
 
 - [Python과 Selemium을 이용한 화면 Capture](#Python과-Selemium을-이용한-화면-Capture)   
 - [Pandas를 이용한 엑셀 파일 읽기 및 저장](#Pandas를-이용한-엑셀-파일-읽기-및-저장)   
+- [bashrc 추가 설정](#bashrc-추가-설정)
 - [Terraform](#terraform)
+
+
 --- 
 
 # Python과 Selemium을 이용한 화면 Capture
@@ -72,6 +75,25 @@
   (seleniumTest) C:\\seleniumTest> pip install xlrd        # Excel 읽을때 필요
   (seleniumTest) C:\\seleniumTest> pip install openpyxl    # Excel 저장시 필요
   ```
+
+# bashrc 추가 설정
+
+```bash
+alias cls='clear'
+
+complete -C /usr/bin/terraform terraform
+
+
+parse_git_branch() {
+    local git_repo_string=$( git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')
+
+    if [ ! -z $git_repo_string ]; then
+        printf "$git_repo_string"
+    fi
+}
+
+PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\e[33m\]\$(parse_git_branch)\[\e[00m\]$ "
+```
 
 ---
 # Terraform 
