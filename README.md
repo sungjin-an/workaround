@@ -75,6 +75,7 @@
   (seleniumTest) C:\\seleniumTest> pip install xlrd        # Excel 읽을때 필요
   (seleniumTest) C:\\seleniumTest> pip install openpyxl    # Excel 저장시 필요
   ```
+---
 
 # bashrc 추가 설정
 
@@ -96,10 +97,22 @@ PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\e[33m\]\$(
 ```
 
 ---
+
 # Terraform 
+
 ## 관련 사이트
+
 - [Terraform AWS modules - Github](https://github.com/terraform-aws-modules)
 - [Kurly Tech Blog - DevOps팀의 Terraform 모험 (2021.08)](https://helloworld.kurly.com/blog/terraform-adventure/)   
 - [Terraform best practices](https://www.terraform-best-practices.com/)   
 
+
+---
+
+# Windows 업데이트 후 Chrome, Edge가 실행 안되는 경우 ( Shadowstack 설정 )
+
+```
+    powershell -command "& {set-processmitigation -name chrome.exe -disable usershadowstack}"
+    powershell -command "& {set-processmitigation -name msedge.exe -disable usershadowstack}"
+```
 
