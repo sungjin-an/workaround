@@ -79,12 +79,18 @@
 
 # bashrc 추가 설정
 
+## 자주 사용하는 alias
 ```bash
 alias cls='clear'
+```
 
+## Terraform 자동완성
+```bash
 complete -C /usr/bin/terraform terraform
+```
 
-
+## Git branch명을 prompt에 표시
+```bash
 parse_git_branch() {
     local git_repo_string=$( git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')
 
