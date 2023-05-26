@@ -3,8 +3,10 @@
 - [Python과 Selemium을 이용한 화면 Capture](#Python과-Selemium을-이용한-화면-Capture)   
 - [Pandas를 이용한 엑셀 파일 읽기 및 저장](#Pandas를-이용한-엑셀-파일-읽기-및-저장)   
 - [bashrc 추가 설정](#bashrc-추가-설정)
+- [Linux 명령어](#linux-명령어)
 - [Terraform](#terraform)
 
+<br>
 
 --- 
 
@@ -63,6 +65,8 @@
 
 - venv 환경을 없애는 것은 해당 폴더를 삭제하면 된다
 
+<br>
+
 ---
 
 # Pandas를 이용한 엑셀 파일 읽기 및 저장
@@ -75,6 +79,9 @@
   (seleniumTest) C:\\seleniumTest> pip install xlrd        # Excel 읽을때 필요
   (seleniumTest) C:\\seleniumTest> pip install openpyxl    # Excel 저장시 필요
   ```
+
+<br>
+
 ---
 
 # bashrc 추가 설정
@@ -101,6 +108,16 @@ parse_git_branch() {
 
 PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\e[33m\]\$(parse_git_branch)\[\e[00m\]$ "
 ```
+
+---
+
+# Linux 명령어 
+
+## 한글이 들어간 파일명 찾기 
+```bash
+find . -print | grep -P '[가-힣]'
+```
+
 
 ---
 
